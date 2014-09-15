@@ -1,0 +1,26 @@
+<%
+    local uci = require "luci.model.uci".cursor()
+    local gwip = uci:get("login_file", "login_params", "gwip")
+    local gwuser = uci:get("login_file", "login_params", "gwuser")
+    local gwpass = uci:get("login_file", "login_params", "gwpass")
+    local encoderip = uci:get("login_file", "login_params", "encoderip")
+    local encoderuser = uci:get("login_file", "login_params", "encoderuser")
+    local encoderpass = uci:get("login_file", "login_params", "encoderpass")
+%>
+<fieldset class="cbi-section">
+    <legend><%:Login Entry%></legend>
+    <form name='GatewayForm' action='<%=pcdata(gwip)%>' method='post'>
+        <input type="hidden" name="username" value="<%=pcdata(gwuser)%>"/>
+        <input type="hidden" name="password" value="<%=pcdata(gwpass)%>"/>
+    </form>
+
+    <a href="javascript:document.GatewayForm.submit();">Gateway Login</a>
+
+    <form name='EncoderForm' action='<%=pcdata(encoderip)%>' method='post'>
+        <input type="hidden" name="username" value="<%=pcdata(encoderuser)%>"/>
+        <input type="hidden" name="password" value="<%=pcdata(encoderpass)%>"/>
+    </form>
+
+    <a href="javascript:document.EncoderForm.submit();">Encoder Login</a>
+</fieldset>
+

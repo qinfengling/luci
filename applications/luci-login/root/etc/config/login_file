@@ -1,0 +1,8 @@
+config 'login_file' 'login_params'
+    option 'gwip' '192.168.1.100'
+    option 'gwuser' 'root'
+    option 'encoderip' '192.168.1.101'
+    option 'encoderuser' 'admin'
+    option 'encoderpass' 'admin'
+    option 'gwpass' 'root'
+
