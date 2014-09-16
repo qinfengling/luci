@@ -421,6 +421,9 @@ $(eval $(call application,radvd,LuCI Support for Radvd,\
 $(eval $(call application,ahcp,LuCI Support for AHCPd,\
 	+PACKAGE_luci-app-ahcp:ahcpd))
 
+$(eval $(call application,login,LuCI Support for Login Automatically,\
+	+PACKAGE_luci-app-login:login))
+
 $(eval $(call application,wshaper,LuCI Support for wshaper,\
 	+PACKAGE_luci-app-wshaper:wshaper))
 
