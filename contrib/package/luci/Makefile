@@ -456,6 +456,9 @@ $(eval $(call application,transmission,LuCI Support for Transmission,\
 $(eval $(call application,watchcat,LuCI Support for Watchcat,\
 	+PACKAGE_luci-app-watchcat:watchcat))
 
+$(eval $(call application,wrtiot,LuCI Support for WRTIOT,\
+	+PACKAGE_luci-app-wrtiot:wrtiot))
+
 ### Server Gateway Interfaces ###
 define sgi
   define Package/luci-sgi-$(1)
