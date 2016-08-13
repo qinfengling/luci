@@ -1,7 +1,7 @@
 include ../../build/config.mk
 include ../../build/gccconfig.mk
 
-UHTTPD_SRC		= svn://svn.openwrt.org/openwrt/branches/backfire/package/uhttpd/src
+UHTTPD_SRC		= https://github.com/qinfengling/uhttpd.git
 UHTTPD_DIR		= uhttpd-src
 UHTTPD_PATCHDIR = patches
 
@@ -10,10 +10,9 @@ all: compile
 include ../../build/module.mk
 
 $(UHTTPD_DIR)/Makefile:
-	svn co $(UHTTPD_SRC) $(UHTTPD_DIR)
+	git clone $(UHTTPD_SRC) $(UHTTPD_DIR)
 
 $(UHTTPD_DIR)/.prepared: $(UHTTPD_DIR)/Makefile
-	(cd $(UHTTPD_PATCHDIR); ls *.patch | sort > series) || true
 	[ -f "$(UHTTPD_PATCHDIR)/series" ] && while read patch; do \
 		patch -d $(UHTTPD_DIR) -p1 < $(UHTTPD_PATCHDIR)/$$patch; \
 	done < $(UHTTPD_PATCHDIR)/series || true
